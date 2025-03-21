@@ -1,7 +1,9 @@
 [package]
 name = "msrv-windows-test"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
-aws-lc-rs = "1.12.6"
+aws-config = { version = "1.6.0", features = ["behavior-version-latest"] }
+aws-sdk-dynamodb = "1.69.0"
+tokio = { version = "1.44.1", features = ["full"] }
