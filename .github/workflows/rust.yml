@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@https://github.com/actions/checkout/commit/11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - run: rustup update
     - name: Build
       run: cargo build --verbose
@@ -21,7 +21,7 @@ jobs:
   msrv:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@https://github.com/actions/checkout/commit/11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     - run: rustup update
     - uses: taiki-e/install-action@351cce3d3afa3dbd66bbe6d30df1d481b1448522 # v2.49.32
       with:
