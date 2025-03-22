@@ -27,4 +27,4 @@ jobs:
       with:
         tool: cargo-msrv
     - name: Find MSRV
-      run: cargo msrv find --output-format json --min 1.85 -- cargo build
+      run: cargo msrv find --no-user-output --log-target stdout --log-level trace --min 1.85
