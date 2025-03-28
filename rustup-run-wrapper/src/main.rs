@@ -1,7 +1,8 @@
 use std::env;
-use std::process::{Command, Stdio};
+use std::os::linux::raw::stat;
+use std::process::{Command, ExitCode, Stdio, Termination};
 
-fn main() {
+fn main() -> impl Termination {
     let cwd = env::current_dir().unwrap();
     let canonical = cwd.canonicalize().unwrap();
 
@@ -24,5 +25,13 @@ fn main() {
     let output = child.wait_with_output().unwrap();
     let text = String::from_utf8_lossy(&output.stdout).into_owned();
 
-    eprintln!("> {text}");
+    eprintln!(">>> {text}");
+
+    let status = output.status;
+
+    if status.success() {
+        Ok(())
+    } else {
+        Err(format!("{}", status.code().unwrap()))
+    }
 }
