@@ -1565,6 +1565,9 @@ dependencies = [
 [[package]]
 name = "rustup-run-wrapper"
 version = "0.1.0"
+dependencies = [
+ "dunce",
+]
 
 [[package]]
 name = "ryu"

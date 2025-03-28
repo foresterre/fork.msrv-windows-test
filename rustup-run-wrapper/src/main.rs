@@ -3,7 +3,7 @@ use std::process::{Command, Stdio, Termination};
 
 fn main() -> impl Termination {
     let cwd = env::current_dir().unwrap();
-    let canonical = cwd.canonicalize().unwrap();
+    let canonical = dunce::canonicalize(cwd).unwrap();
 
     let mut cmd = Command::new("rustup");
     let cmd = cmd
