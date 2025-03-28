@@ -1,4 +1,3 @@
-use std::env;
 use std::process::{Command, Stdio, Termination};
 
 fn main() -> impl Termination {
