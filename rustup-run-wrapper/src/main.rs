@@ -1,6 +1,10 @@
+use std::env;
 use std::process::{Command, Stdio, Termination};
 
 fn main() -> impl Termination {
+    let cwd = env::current_dir().unwrap();
+    let canonical = cwd.canonicalize().unwrap();
+
     let mut cmd = Command::new("rustup");
     let cmd = cmd
         .args(&[
@@ -11,7 +15,8 @@ fn main() -> impl Termination {
             "--target",
             "x86_64-pc-windows-msvc",
         ])
-        .stdout(Stdio::piped());
+        .stdout(Stdio::piped())
+        .current_dir(canonical);
 
     dbg!(&cmd);
 
