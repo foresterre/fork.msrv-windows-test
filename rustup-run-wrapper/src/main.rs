@@ -5,7 +5,8 @@ fn main() {
     let cwd = env::current_dir().unwrap();
     let canonical = cwd.canonicalize().unwrap();
 
-    let cmd = Command::new("rustup")
+    let mut cmd = Command::new("rustup");
+    let cmd = cmd
         .args(&[
             "run",
             "stable",
@@ -19,5 +20,9 @@ fn main() {
 
     dbg!(&cmd);
 
-    cmd.spawn().unwrap();
+    let child = cmd.spawn().unwrap();
+    let output = child.wait_with_output().unwrap();
+    let text = String::from_utf8_lossy(&output.stdout).into_owned();
+
+    eprintln!("> {text}");
 }
