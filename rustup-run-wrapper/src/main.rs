@@ -1,5 +1,4 @@
 use std::env;
-use std::os::linux::raw::stat;
 use std::process::{Command, ExitCode, Stdio, Termination};
 
 fn main() -> impl Termination {
