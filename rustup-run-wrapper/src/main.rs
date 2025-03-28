@@ -1,5 +1,5 @@
 use std::env;
-use std::process::{Command, ExitCode, Stdio, Termination};
+use std::process::{Command, Stdio, Termination};
 
 fn main() -> impl Termination {
     let cwd = env::current_dir().unwrap();
