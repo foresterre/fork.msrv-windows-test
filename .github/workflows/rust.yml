@@ -27,7 +27,7 @@ jobs:
         with:
           tool: cargo-msrv
       - name: Find MSRV
-        run: cargo msrv find --release-source rust-dist --linear
+        run: cargo msrv find --release-source rust-dist --linear --no-user-output --log-level trace --log-target stdout
 
   wrapper:
     runs-on: windows-2022
